@@ -1,10 +1,126 @@
 def main():
+    while True:
+        print("\n\n\nВыберите действие: \n"
+              "1 Конвертация \n"
+              "2 Сложение \n"
+              "3 Вычистание \n"
+              "4 Выход")
+        choiceU = int(input(">>>"))
 
-    num1 = str(input("Введите первое число: "))
-    num2 = str(input("Введите второе число: "))
+        if choiceU == 1:
+            print("Выберите перевод из какой системы счисления в какую нужен:\n"
+                  "1 Из 2cc в 8cc\n"
+                  "2 Из 2cc в 10cc\n"
+                  "3 Из 2cc в 16ccя\n"
+                  
+                  "4 Из 8cc в 2cc\n"
+                  "5 Из 8cc в 10cc\n"
+                  "6 Из 8cc в 16cc\n"
+                  
+                  "7 Из 10cc в 2cc\n"
+                  "8 Из 10cc в 8cc\n"
+                  "9 Из 10cc в 16cc\n"
 
-    de = hex_add(num1, num2)
-    print(de)
+                  "10 Из 16cc в 2cc\n"
+                  "11 Из 16cc в 10cc\n"
+                  )
+            choiceSS = int(input(">>"))
+
+            if choiceSS == 1:
+                num1 = input("Введите первое число \n")
+
+                print("Ответ: " + BinaryToOct(num1))
+
+            elif choiceSS == 2:
+                num1 = int(input("Введите первое число\n"))
+                print("Ответ: " + str(BinaryToDec(num1)))
+
+            elif choiceSS == 3:
+                num1 = input("Введите первое число\n")
+                print("Ответ: " + BinaryToHex(num1))
+
+            elif choiceSS == 4:
+                num1 = input("Введите первое число\n")
+                print("Ответ: " + str(OctalToBin(num1)))
+
+            elif choiceSS == 5:
+                num1 = input("Введите первое число\n")
+                print("Ответ: " + str(OctalToDec(num1)))
+
+            elif choiceSS == 6:
+                num1 = input("Введите первое число \n")
+                print("Ответ: " + OctalToHex(num1))
+
+            elif choiceSS == 7:
+                num1 = input("Введите первое число\n")
+                print("Ответ: " + DecimalToBin(num1))
+
+            elif choiceSS == 8:
+                num1 = input("Введите первое число\n")
+                print("Ответ: " + DecimalToOct(num1))
+
+            elif choiceSS == 9:
+                num1 = input("Введите первое число\n")
+                print("Ответ: " + DecimalToHex(num1))
+
+            elif choiceSS == 10:
+                num1 = input("Введите первое число\n")
+                print("Ответ: " + str(HexToBin(num1)))
+
+            elif choiceSS == 11:
+                num1 = input("Введите первое число\n")
+                print("Ответ: " + str(HexToDec(num1)))
+
+        elif choiceU == 2:
+            print("Выберите в какой системе счисления складывавем:\n"
+                  "1 В 2cc\n"
+                  "2 В 8cc\n"
+                  "3 В 16cc\n")
+            choiceAdd = int(input(">>>"))
+
+            if choiceAdd == 1:
+                num1 = input("Введите первое число \n")
+                num2 = input("Введите второе число\n")
+                print("Ответ: " + BinaryAdd(num1, num2))
+
+            elif choiceAdd == 2:
+                num1 = input("Введите первое число \n")
+                num2 = input("Введите второе число\n")
+                print("Ответ: " + OctalAdd(num1, num2))
+
+            elif choiceAdd == 3:
+                num1 = input("Введите первое число \n")
+                num2 = input("Введите второе число\n")
+                print("Ответ: " + HexAdd(num1, num2))
+
+        elif choiceU == 3:
+            print("Выберите в какой системе счисления вычитаем:\n"
+                  "1 В 2cc\n"
+                  "2 В 8cc\n"
+                  "3 В 16cc\n")
+            choiceSub = int(input(">>>"))
+
+            if choiceSub == 1:
+                num1 = input("Введите первое число \n")
+                num2 = input("Введите второе число\n")
+                print("Ответ: " + BinarySub(num1, num2))
+
+            elif choiceSub == 2:
+                num1 = input("Введите первое число \n")
+                num2 = input("Введите второе число\n")
+                print("Ответ: " + OctalSub(num1, num2))
+
+            elif choiceSub == 3:
+                num1 = input("Введите первое число \n")
+                num2 = input("Введите второе число\n")
+                print("Ответ: " + HexSub(num1, num2))
+
+        elif choiceU == 4:
+            print("Выход из программы.")
+            break
+
+        else:
+            print("Неверный выбор. Попробуйте снова.")
 
 
 def DecimalToBin(num):
@@ -24,7 +140,6 @@ def DecimalToBin(num):
         bin_number = "-" + bin_number
 
     return bin_number
-
 def DecimalToOct(num):
     if num == 0:
         return "0"
@@ -74,7 +189,6 @@ def BinaryToDec(num):
         st += 1
 
     return decimal_number
-
 def BinaryToOct(num):
 
     num = str(num)
@@ -96,7 +210,6 @@ def BinaryToOct(num):
         octal_number += str(decimal_value)
 
     return octal_number
-
 def BinaryToHex(num):
     hex_characters = "0123456789ABCDEF"
     num = str(num)
@@ -144,7 +257,6 @@ def OctalToDec(num):
         j = j + 1
 
     return int(binary_number)
-
 def OctalToHex(num):
     dec = int(OctalToDec(num))
     oct = DecimalToHex(dec)
@@ -164,7 +276,6 @@ def HexToBin(num):
         binary_number += binary
 
     return int(binary_number)
-
 def HexToDec(num):
     hex_characters = "0123456789ABCDEF"
     num = str(num)
@@ -180,10 +291,10 @@ def HexToDec(num):
     return int(binary_number)
 
 
-def binary_addition(n1, n2):
-    max_len = max(len(n1), len(n2))
-    bin1 = n1.zfill(max_len)  # Дополняем нулями слева для одинаковой длины
-    bin2 = n2.zfill(max_len)
+def BinaryAdd(num1, num2):
+    max_len = max(len(num1), len(num2))
+    bin1 = num1.zfill(max_len)  # Дополняем нулями слева для одинаковой длины
+    bin2 = num2.zfill(max_len)
 
     carry = 0
     result = ""
@@ -200,19 +311,18 @@ def binary_addition(n1, n2):
         result = "1" + result
 
     return result
-
-def binary_subtraction_manual(bin1, bin2):
+def BinarySub(num1, num2):
     is_negative = ""
-    if bin1 < bin2:
-        bin3 = bin1
-        bin1 = bin2
-        bin2 = bin3
+    if num1 < num2:
+        num3 = num1
+        num1 = num2
+        num2 = num3
         is_negative = "-"
 
     # Дополняем нулями для одинаковой длины
-    max_len = max(len(bin1), len(bin2))
-    bin1 = bin1.zfill(max_len)
-    bin2 = bin2.zfill(max_len)
+    max_len = max(len(num1), len(num2))
+    bin1 = num1.zfill(max_len)
+    bin2 = num2.zfill(max_len)
 
     result = ""
     borrow = 0
@@ -235,10 +345,10 @@ def binary_subtraction_manual(bin1, bin2):
     return is_negative + result.lstrip("0") or "0"
 
 
-def octal_addition(n1, n2):
-    max_len = max(len(n1), len(n2))
-    bin1 = n1.zfill(max_len)  # Дополняем нулями слева для одинаковой длины
-    bin2 = n2.zfill(max_len)
+def OctalAdd(num1, num2):
+    max_len = max(len(num1), len(num2))
+    bin1 = num1.zfill(max_len)  # Дополняем нулями слева для одинаковой длины
+    bin2 = num2.zfill(max_len)
 
     carry = 0
     result = ""
@@ -259,51 +369,72 @@ def octal_addition(n1, n2):
         result = "1" + result
 
     return result
-
-def octal_sub(bin1, bin2):
+def OctalSub(num1, num2):
     is_negative = ""
-    if int(bin1) < int(bin2):
-        bin3 = bin1
-        bin1 = bin2
-        bin2 = bin3
+    if int(num1) < int(num2):
+        num3 = num1
+        num1 = num2
+        num2 = num3
         is_negative = "-"
 
-    return is_negative + str(int(bin1) - int(bin2)) or "0"
+    max_len = max(len(num1), len(num2))
+    bin1 = num1.zfill(max_len)
+    bin2 = num2.zfill(max_len)
 
-
-def hex_add(n1, n2):
-    hex_characters = "0123456789ABCDEF"
-    max_len = max(len(n1), len(n2))
-    bin1 = n1.zfill(max_len)  # Дополняем нулями слева для одинаковой длины
-    bin2 = n2.zfill(max_len)
-
+    result = ""
     borrow = 0
+
+    # Проходим по разрядам справа налево
+    for i in range(max_len - 1, -1, -1):
+        bit1 = int(bin1[i]) + borrow
+        bit2 = int(bin2[i])
+
+        if bit1 < bit2:
+            # Заимствуем единицу из старшего разряда
+            borrow = -1
+            bit1 += 8
+        else:
+            borrow = 0
+
+        result = str(bit1 - bit2) + result
+
+
+
+    # Удаляем ведущие нули
+    return is_negative + result.lstrip("0") or "0"
+
+
+def HexAdd(num1, num2):
+    hex_characters = "0123456789ABCDEF"
+    max_len = max(len(num1), len(num2))
+    bin1 = num1.zfill(max_len)  # Дополняем нулями слева для одинаковой длины
+    bin2 = num2.zfill(max_len)
+
+    carry = 0
     result = ""
 
     # Идем от младших разрядов к старшим
     for i in range(max_len - 1, -1, -1):
-        bit1 = hex_characters.index(bin1[i]) + borrow
-        bit2 = hex_characters.index(bin2[i])
-        if bit1 < bit2:
-            # Заимствуем единицу из старшего разряда
-            borrow = -1
-            bit1 += 16
-        else:
-            borrow = 0
+        bit1 = hex_characters.index(str(bin1[i]))
+        bit2 = hex_characters.index(str(bin2[i]))
+        sum_bits = bit1 + bit2 + carry
+        carry = 0
+        if sum_bits > 15:
+            sum_bits = sum_bits - 16
+            carry = 1
+        result = str(hex_characters[sum_bits]) + result  # Остаток от деления на 2
 
-        result = str(hex_characters[bit1-bit2]) + result  # Остаток от деления на 2
-
-    if borrow == -1:
-        result = "-F" + result
+    if carry:
+        result = "1" + result
 
     return result
 
-def hex_sub(bin1, bin2):
+def HexSub(num1, num2):
     hex_characters = "0123456789ABCDEF"
     # Дополняем нулями для одинаковой длины
-    max_len = max(len(bin1), len(bin2))
-    bin1 = bin1.zfill(max_len)
-    bin2 = bin2.zfill(max_len)
+    max_len = max(len(num1), len(num2))
+    bin1 = num1.zfill(max_len)
+    bin2 = num2.zfill(max_len)
 
     result = ""
     borrow = 0
@@ -321,6 +452,9 @@ def hex_sub(bin1, bin2):
             borrow = 0
 
         result = str(hex_characters[bit1 - bit2]) + result
+
+    if borrow == -1:
+        result = "F" + result
 
     # Удаляем ведущие нули
     return result.lstrip("0") or "0"
